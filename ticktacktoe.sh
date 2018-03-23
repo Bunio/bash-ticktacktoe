@@ -21,6 +21,15 @@ function printTable {
 	 echo "${TABLE[0 + 3*$i]} ${TABLE[1 + 3*$i]} ${TABLE[2 + 3*$i]}"
  done
 }
+
+function switchPlayer {
+if [ "$PLAYER" == "x" ];
+	then
+		PLAYER="o"
+	else
+		PLAYER="x"
+	fi
+}
 #-------------
 
 
@@ -35,6 +44,9 @@ do
 	read x
 
 	TABLE[x]=$PLAYER
+
+	switchPlayer
+
 
 done
 
