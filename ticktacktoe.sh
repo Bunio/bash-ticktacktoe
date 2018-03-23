@@ -33,6 +33,11 @@ function victory {
 
 }
 
+function draw {
+ echo "-------------------------> DRAW!"
+ exit 1
+}
+
 
 function checkVictory {
 
@@ -46,6 +51,13 @@ done
 
 # Vertical
 
+for i in {0..2}
+do
+	if [ "${TABLE[0 + $i]}" == "$PLAYER" ] && [ "${TABLE[3 + $i]}" == "$PLAYER" ] && [ "${TABLE[6 + $i]}" == "$PLAYER" ]; then
+		victory
+	fi
+
+done
 
 
 # Cross
