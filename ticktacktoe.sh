@@ -9,11 +9,6 @@ PLAYER="x"
 
 #-------------
 
-
-function hello {
- echo "Hello"
-}
-
 function printTable {
  echo "TABLE:"
  for i in {0..2}
@@ -39,12 +34,18 @@ do
 
 	echo ""
 	echo "Current player: $PLAYER"
-	echo "Please select your target (0-8)"
+	echo "Please select your target (0-8) ..."
 
 	read x
 
-	TABLE[x]=$PLAYER
+	while [ "${TABLE[x]}" != "-" ]
+	do
+		echo "Oops, this field is already taken!"
+		echo "Please select different field ... "
+		read x
+	done
 
+	TABLE[x]=$PLAYER
 	switchPlayer
 
 
