@@ -25,6 +25,33 @@ if [ "$PLAYER" == "x" ];
 		PLAYER="x"
 	fi
 }
+
+function victory {
+ echo "------------------------->  PLAYER $PLAYER WON! "
+ printTable
+ exit 1
+
+}
+
+
+function checkVictory {
+
+# Horizontal
+for i in {0..2}
+do
+	if [ "${TABLE[0 + 3*$i]}" == "$PLAYER" ] && [ "${TABLE[1 + 3*$i]}" == "$PLAYER" ] && [ "${TABLE[2 + 3*$i]}" == "$PLAYER" ]; then
+		victory
+	fi
+done
+
+# Vertical
+
+
+
+# Cross
+
+}
+
 #-------------
 
 
@@ -46,6 +73,8 @@ do
 	done
 
 	TABLE[x]=$PLAYER
+
+	checkVictory
 	switchPlayer
 
 
